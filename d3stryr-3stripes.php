@@ -959,4 +959,3 @@ Then open up a browser window and navigate to:
 http://localhost:8000/d3stryr-3stripes.php
 
 -->
--->
