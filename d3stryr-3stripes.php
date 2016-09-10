@@ -754,6 +754,7 @@ Public License instead of this License.  But first, please read
   curl_setopt($curl,CURLOPT_HEADER,false);
   curl_setopt($curl,CURLOPT_FOLLOWLOCATION, 1);
   curl_setopt($curl,CURLOPT_USERAGENT, $useragent);
+  curl_setopt($curl,CURLOPT_HTTPHEADER, array("User-Agent:".$useragent));
   curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, 0);
