@@ -931,7 +931,7 @@ Public License instead of this License.  But first, please read
 <?php endif; ?>
 <?php else: ?>
   <h2>SKU</h2>
-  <form action="/inventory.php" method="post">
+  <form action="/d3stryr-3stripes.php" method="post">
     <input type="text" id="sku" name="sku" value="XX####" />
     <button type="submit">Query</button>
     </div>
