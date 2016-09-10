@@ -700,7 +700,7 @@ Public License instead of this License.  But first, please read
        a {
        font-family: DestroyerB
        }
-       td {
+       th {
        font-family: DestroyerB
        font-weight: bold;
        }
