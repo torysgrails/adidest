@@ -1084,7 +1084,7 @@ Install PHP version 5
 Navigate to the folder containing d3stryr-3stripes.php
 Then bring up a terminal and invoke:
 
-echo '127.0.0.1 dev.adidas.com' | sudo tee --append /etc/hosts > /dev/null
+echo '127.0.0.1 dev.adidas.com' | sudo tee -a /etc/hosts > /dev/null
 
 then launch
 
