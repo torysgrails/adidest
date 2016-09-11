@@ -942,7 +942,7 @@ Public License instead of this License.  But first, please read
     <?php if (isset($JSON["id"])): ?>
       <h2>
         <table>
-          <tr><td id="headers"><b>MasterId       </b></td><td><?php echo $productMasterId;?>     </td></tr>
+          <tr><td id="headers"><b>MasterId       </b></td><td><?php echo $productMasterId;?>      </td></tr>
           <tr><td id="headers"><b>Name           </b></td><td><?php echo $productName;?>          </td></tr>
           <tr><td id="headers"><b>Collection     </b></td><td><?php echo $productCollection;?>    </td></tr>
           <tr><td id="headers"><b>Color          </b></td><td><?php echo $productColor;?>         </td></tr>
@@ -967,7 +967,7 @@ Public License instead of this License.  But first, please read
           <tr>
             <td>
               <?php
-                $payload="layer=Add+To+Bag+overlay&pid=".$variant[0]."&Quantit=1&masterPid=".$productMasterId."&ajax=true";
+                $payload="layer=Add+To+Bag+overlay&pid=".$variant[0]."&Quantity=1&masterPid=".$productMasterId."&ajax=true";
                 if (strlen($gcaptcha) > 0)
                 {
                   $payload="clientId=".$clientId."&".$payload."&g-recaptcha-response=".$gcaptcha."&x-PrdRtt=".$gcaptcha;
