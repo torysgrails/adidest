@@ -1014,7 +1014,7 @@ Public License instead of this License.  But first, please read
     <textarea name="gcaptcha" id="gcaptcha" cols="100" rows="10" value=""></textarea>
     <button type="submit">Query</button>
   </form>
-  <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by SOLEMARTYR</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><?php endif; ?>
+  <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by Mr. Irrelevant</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><?php endif; ?>
  </body>
 </html>
 <!--
