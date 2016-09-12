@@ -796,12 +796,12 @@
             <td valign="middle">
               <select name="d3stripesLocale">
                 <option value="US">US</option>
-                <option value="UK">UK</option>
+                <option value="CA">CA (Canada)</option>
+                <option value="GB">GB (United Kingdom)</option>
                 <option value="AT">AT</option>
                 <option value="AU">AU</option>
                 <option value="BE">BE</option>
                 <option value="BR">BR</option>
-                <option value="CA">CA</option>
                 <option value="CL">CL</option>
                 <option value="CO">CO</option>
                 <option value="CZ">CZ</option>
@@ -882,7 +882,7 @@
           $marketsList['RU']='ru_RU';
           $marketsList['SE']='sv_SE';
           $marketsList['SK']='sk_SK';
-          $marketsList['UK']='en_GB';
+          $marketsList['GB']='en_GB';
           $marketsList['US']='en_US';
 
           $marketDomainList=[];
@@ -908,14 +908,15 @@
           $marketDomainList["RU"]="adidas.ru";
           $marketDomainList["SE"]="adidas.se";
           $marketDomainList["SK"]="adidas.sk";
-          $marketDomainList["UK"]="adidas.co.uk";
+          $marketDomainList["GB"]="adidas.co.uk";
           $marketDomainList["US"]="adidas.com";
 
           $baseADCURL="http://www.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale];
           $atcURL=$baseADCURL."/Cart-MiniAddProduct";
           $stockURL=$baseADCURL."/Product-GetVariants?pid=".$sku;
 
-          if ($locale == "US")
+          //Thanks to @PythonKicks/TWTR for the logical fix below for CANADA and MEXICO
+          if (($locale == "US")||($locale == "CA")||($locale == "MX"))
           {
             $url="http://production-us-adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/".$sku."?client_id=".$clientId."&expand=availability,variations,prices";
           }
