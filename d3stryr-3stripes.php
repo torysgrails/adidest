@@ -755,6 +755,12 @@
   </head>
   <body onload="checkCookie()">
     <?php if ( (isset($_POST['setParameters'])) && (strlen($_POST['setParameters'])>0) ): ?>  <!-- Process parameter change -->
+      <script>
+        setCookie("d3stripesSku", "<?php echo htmlspecialchars($_POST["d3stripesSku"]); ?>", 365);
+        setCookie("d3stripesLocale", "<?php echo htmlspecialchars($_POST["d3stripesLocale"]); ?>", 365);
+        setCookie("d3stripesSiteKey", "<?php echo htmlspecialchars($_POST["d3stripesSiteKey"]); ?>", 365);
+        setCookie("d3stripesClientId", "<?php echo htmlspecialchars($_POST["d3stripesClientId"]); ?>", 365);
+      </script>
       <?php
           //Sku
           @setcookie("d3stripesSku",$_POST['d3stripesSku']);
@@ -1243,6 +1249,7 @@
                     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
                   </h2>
                   <p>
+                    <input type="hidden" value="<?php echo htmlspecialchars($locale); ?>" name="locale" id="locale"/>
                     <input type="submit" value="Solve Captcha" id="submit"/>
                   </p>
                 </fieldset>
