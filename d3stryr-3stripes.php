@@ -1216,7 +1216,7 @@
           <tr>
             <td>
               <fieldset>
-                <h2><font color="red">Refresh your browser again in order for cookies to stick.</font></h2>
+                <h2><font color="red">Refresh your browser again in order for default cookies to stick.</font></h2>
               </fieldset>
             </td>
           </tr>
