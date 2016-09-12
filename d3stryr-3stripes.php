@@ -848,7 +848,7 @@
         </fieldset>
       </form>
 
-    <?php else: ?>  <!-- Proceed through the main code using values currently in _COOKIE-->
+    <?php else: ?>  <!-- Proceed through the main code using values currently in cookie storage-->
 
       <?php if ( (isset($_POST['sku'])) && (strlen($_POST['sku'])>0) ): ?>  <!-- Process the submit-->
 
@@ -1334,7 +1334,7 @@ Install PHP version 5
 Navigate to the folder containing d3stryr-3stripes.php ** IMPORTANT **
 Then bring up a terminal and invoke:
 
-sudo echo '127.0.0.1 dev.adidas.com' > /etc/hosts
+echo '127.0.0.1 dev.adidas.com' | sudo tee -a /etc/hosts > /dev/null
 
 then launch
 
