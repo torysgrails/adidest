@@ -677,6 +677,7 @@
   Public License instead of this License.  But first, please read
   <http://www.gnu.org/philosophy/why-not-lgpl.html>.
   -->
+  <?php $debug=False; ?>
   <title>d3stry 3stripes</title>
   <script>
     function setCookie(cname, cvalue, exdays) {
@@ -980,7 +981,7 @@
               @$productStock=$JSON["inventory"]["stock_level"];
               @$productMasterId=$JSON["master"]["master_id"];
               @$productName=$JSON["name"];
-              @$productPrice=$JSON["variants"][0]["price"]." USD";
+              @$productPrice=$JSON["variants"][0]["price"]." ".$locale." Currency";
               @$productCollection=$JSON["c_collection"][0];
               @$productColor=$JSON["c_color"];
               @$productDivision=$JSON["c_division"];
@@ -1251,7 +1252,7 @@
                   </h2>
                   <p>
                     <input type="hidden" value="<?php echo htmlspecialchars($locale); ?>" name="locale" id="locale"/>
-                    <input type="submit" value="Solve Captcha" id="submit"/>
+                    <input type="submit" value="Transfer Google Captcha Token" id="submit"/>
                   </p>
                 </fieldset>
               </form>
