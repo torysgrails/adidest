@@ -1060,7 +1060,7 @@
                 $queryString=$queryString.$variation["product_id"].",";
               }
 
-              if ($locale == "US")
+              if (($locale == "US")||($locale == "CA")||($locale == "MX")) //Thanks @PythonKicks/TWTR
               {
                 $urlClientStock="http://production-us-adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/(".$queryString.")?client_id=".$clientId."&expand=availability,variations,prices";
               }
