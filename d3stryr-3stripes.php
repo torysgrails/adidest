@@ -754,341 +754,376 @@
     }
     </style>
   </head>
+  <?php
+
+    $useragents=array(
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4",
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4",
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53",
+      "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5",
+      "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5",
+      "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53",
+      "Mozilla/5.0 (iPad; CPU OS 4_3_5 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8L1 Safari/6533.18.5",
+      "Mozilla/5.0 (Linux; U; en-us; KFAPWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true",
+      "Mozilla/5.0 (Linux; U; en-us; KFTHWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true",
+      "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.0.141.16-Gen4_11004310) AppleWebkit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true",
+      "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Nexus S Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
+      "Mozilla/5.0 (Linux; Android 4.3; Nexus 7 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19",
+      "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+",
+      "Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36",
+      "Mozilla/5.0 (Linux; U; Android 2.3; en-us; SAMSUNG-SGH-I717 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
+      "Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+      "Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+      "Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; U; Android 2.2; en-us; SCH-I800 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36");
+
+    $marketsList=[];
+    $marketsList['AT']='de_AT';
+    $marketsList['AU']='en_AU';
+    $marketsList['BE']='fr_BE';
+    $marketsList['BR']='pt_BR';
+    $marketsList['CA']='en_CA';
+    $marketsList['CL']='es_CL';
+    $marketsList['CO']='es_CO';
+    $marketsList['CZ']='cz_CZ';
+    $marketsList['DE']='de_DE';
+    $marketsList['DK']='da_DK';
+    $marketsList['ES']='es_ES';
+    $marketsList['FI']='fi_FI';
+    $marketsList['FR']='fr_FR';
+    $marketsList['IE']='id_ID';
+    $marketsList['IT']='it_IT';
+    $marketsList['MX']='es_MX';
+    $marketsList['NL']='nl_NL';
+    $marketsList['NZ']='en_NZ';
+    $marketsList['PL']='pl_PL';
+    $marketsList['RU']='ru_RU';
+    $marketsList['SE']='sv_SE';
+    $marketsList['SK']='sk_SK';
+    $marketsList['GB']='en_GB';
+    $marketsList['US']='en_US';
+
+    $marketDomainList=[];
+    $marketDomainList["AT"]="adidas.at";
+    $marketDomainList["AU"]="adidas.com.au";
+    $marketDomainList["BE"]="adidas.be";
+    $marketDomainList["BR"]="adidas.com.br";
+    $marketDomainList["CA"]="adidas.ca";
+    $marketDomainList["CL"]="adidas.cl";
+    $marketDomainList["CO"]="adidas.co";
+    $marketDomainList["CZ"]="adidas.cz";
+    $marketDomainList["DE"]="adidas.de";
+    $marketDomainList["DK"]="adidas.dk";
+    $marketDomainList["ES"]="adidas.es";
+    $marketDomainList["FI"]="adidas.fi";
+    $marketDomainList["FR"]="adidas.fr";
+    $marketDomainList["IE"]="adidas.ie";
+    $marketDomainList["IT"]="adidas.it";
+    $marketDomainList["MX"]="adidas.mx";
+    $marketDomainList["NL"]="adidas.nl";
+    $marketDomainList["NZ"]="adidas.co.nz";
+    $marketDomainList["PL"]="adidas.pl";
+    $marketDomainList["RU"]="adidas.ru";
+    $marketDomainList["SE"]="adidas.se";
+    $marketDomainList["SK"]="adidas.sk";
+    $marketDomainList["GB"]="adidas.co.uk";
+    $marketDomainList["US"]="adidas.com";
+  ?>
   <body onload="checkCookie()">
-    <?php if ( (isset($_POST['setParameters'])) && (strlen($_POST['setParameters'])>0) ): ?>  <!-- Process parameter change -->
-      <script>
-        setCookie("d3stripesSku", "<?php echo htmlspecialchars($_POST["d3stripesSku"]); ?>", 365);
-        setCookie("d3stripesLocale", "<?php echo htmlspecialchars($_POST["d3stripesLocale"]); ?>", 365);
-        setCookie("d3stripesSiteKey", "<?php echo htmlspecialchars($_POST["d3stripesSiteKey"]); ?>", 365);
-        setCookie("d3stripesClientId", "<?php echo htmlspecialchars($_POST["d3stripesClientId"]); ?>", 365);
-      </script>
+    <?php if ( (isset($_POST['atcPostContinueShopping'])) && (strlen($_POST['atcPostContinueShopping'])>0) ): ?>  <!-- Process ATC via Continue Shopping -->
       <?php
-          //Sku
-          @setcookie("d3stripesSku",$_POST['d3stripesSku']);
-          $_COOKIE['d3stripesSku']=$_POST['d3stripesSku'];
-          //Locale
-          @setcookie("d3stripesLocale",$_POST['d3stripesLocale']);
-          $_COOKIE['d3stripesLocale']=$_POST['d3stripesLocale'];
-          //Captcha Site-key
-          @setcookie("d3stripesSiteKey",$_POST['d3stripesSiteKey']);
-          $_COOKIE['d3stripesSiteKey']=$_POST['d3stripesSiteKey'];
-          //ClientId
-          @setcookie("d3stripesClientId",$_POST['d3stripesClientId']);
-          $_COOKIE['d3stripesClientId']=$_POST['d3stripesClientId'];
+        //Parse POST parameters
+        echo "<h2><font color='red'>STILL UNDER DEVELOPMENT</font></h2>";
+        $pid=$_POST['pid'];
+        $masterPid=$_POST['masterPid'];
+        $gcaptcha=$_POST['gcaptcha'];
+        $clientId=$_POST['clientId'];
+        $locale=$_POST['locale'];
+
+        $baseRestoreBasketUrl="http://www.".$marketDomainList[$locale];
+        $baseADCURL="http://www.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale];
+        $atcURL=$baseADCURL."/Cart-MiniAddProduct";
+
+        if ((strlen($gcaptcha)>1))
+        {
+          $backDoorADCURL=$atcURL."?pid=".$pid."&masterPid=".$masterPid."&ajax=true&g-recaptcha-response=".$gcaptcha;
+        }
+        else
+        {
+          $backDoorADCURL=$atcURL."?pid=".$pid."&masterPid=".$masterPid."&ajax=true";
+        }
+
+        //Randomize our User-Agent
+        $useragent=$useragents[rand()%sizeof($useragents)];
+
+        $headers=array();
+        $headers["User-Agent"]=$useragent;
+        $headers["Accept"]="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
+        $headers["Accept-Encoding"]="gzip, deflate";
+        $headers["Accept-Language"]="en-US,en;q=0.8,fr;q=0.6";
+        $headers["Cache-Control"]="no-cache";
+        $headers["Connection"]="keep-alive";
+        $headers["Content-Type"]="application/x-www-form-urlencoded";
+        $headers["DN"]="1";
+        $headers["Host"]="m".$marketDomainList[$locale];
+        $headers["Pragma"]="no-cache";
+        $headers["Upgrade-Insecure-Requests"]="1";
+        $headers["Referer"]="https://m.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale]."/Cart-Show";
+        $headers["Origin"]="https://m.".$marketDomainList[$locale];
+
+        $data=array();
+        $data["dwfrm_cart_continueShopping"]="Continue Shopping";
+
+        $curl = curl_init();
+        curl_setopt($curl,CURLOPT_HEADER,1);
+        curl_setopt($curl,CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($curl,CURLINFO_HEADER_OUT, 1);
+        curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl,CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl,CURLOPT_URL, $backDoorADCURL);
+        curl_setopt($curl,CURLOPT_POST, sizeof($data));
+        curl_setopt($curl,CURLOPT_POSTFIELDS, $data);
+        $response = curl_exec($curl) or die(curl_error($curl));
+        curl_close($curl);
+
+        //We carted but all the cookies are within the curl session.
+        //We need to pass these cookies for the cart into the client (browser).
+
+//      preg_match_all("/Set-Cookie:\s*([^\/]*)\//", $response, $matches);
+        //Match all Set-Cookie lines
+        preg_match_all("/Set-Cookie:\s*(.*)\n/", $response, $matches);
+
+        $setCookies=$matches[0];
+
+        //Strip out 'Set-Cookie: ' string so we can explode into arrays and ultimately a JSON
+        for ($i=0;$i < count($setCookies); $i++)
+        {
+          $setCookies[$i]=str_replace("Set-Cookie: ","",$setCookies[$i]);
+        }
+
+        //Need to create a a setCookieJSONArray
+
+        foreach($setCookies as $setCookie)
+        {
+
+          //Need to explode each $setCookie by ";" into $cookieExploded
+          //Need to explode each $cookieExploded by "=" into $cookedieExploded
+          //Need to create $tempJSON and add $tempJSON[$cookedieExploded[0]]=$cookedieExploded[1]
+          //Need to append $tempJSON into $setCookieJSONArray
+          //Need to think of a better variable name than cookedieExploded
+
+          if (strpos($setCookie,'restoreBasketUrl') !== False)
+          {
+            echo "<h2><font color='green'>restoreBasketUrl:</font><br>";
+            $cookieExploded=explode(";",$setCookie);
+            foreach($cookieExploded as $cookedie)
+            {
+              $cookedieExploded=explode("=",$cookedie);
+
+              //Test parsing restoreBasketUrl
+              if (strpos($cookedieExploded[0],'restoreBasketUrl') !== False)
+              {
+                $restoreBasketUrl=$baseRestoreBasketUrl.urldecode($cookedieExploded[1]);
+                echo "<a href='".$restoreBasketUrl."'>".$restoreBasketUrl."</a>";
+              }
+            }
+            echo "<br></h2>";
+          }
+          else
+          {
+            echo "<pre>".$setCookie."</pre>";
+          }
+        }
+
       ?>
-    <?php endif; ?>
-    <?php if ( (isset($_POST['resetParameters'])) && (strlen($_POST['resetParameters'])>0) ): ?>  <!-- Display form parameter change request-->
-      <!-- Change Parameters -->
-      <h2>Set / Change Parameters</h2>
-
-      <form action="/d3stryr-3stripes.php" method="post">
-        <fieldset>
-        <table>
-          <tr>
-            <td id="headers">
-              <p>SKU<p>
-            </td>
-            <td>
-              <input type="text" id="d3stripesSku" name="d3stripesSku" size="50" value="<?php echo htmlspecialchars($_COOKIE["d3stripesSku"]); ?>" />
-            </td>
-          </tr>
-          <tr>
-            <td id="headers"><p>Locale </p></td>
-            <td valign="middle">
-              <select name="d3stripesLocale">
-                <option value="US">US</option>
-                <option value="CA">CA (Canada)</option>
-                <option value="GB">GB (United Kingdom)</option>
-                <option value="AT">AT</option>
-                <option value="AU">AU</option>
-                <option value="BE">BE</option>
-                <option value="BR">BR</option>
-                <option value="CL">CL</option>
-                <option value="CO">CO</option>
-                <option value="CZ">CZ</option>
-                <option value="DE">DE</option>
-                <option value="DK">DK</option>
-                <option value="ES">ES</option>
-                <option value="FI">FI</option>
-                <option value="FR">FR</option>
-                <option value="IE">IE</option>
-                <option value="IT">IT</option>
-                <option value="MX">MX</option>
-                <option value="NL">NL</option>
-                <option value="NZ">NZ</option>
-                <option value="PL">PL</option>
-                <option value="RU">RU</option>
-                <option value="SE">SE</option>
-                <option value="SK">SK</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td id="headers">
-              <p>Captcha SITE-KEY<p>
-            </td>
-            <td>
-              <input type="text" id="d3stripesSiteKey" name="d3stripesSiteKey" size="50" value="<?php echo htmlspecialchars($_COOKIE["d3stripesSiteKey"]); ?>" />
-            </td>
-          </tr>
-          <tr>
-            <td id="headers">
-              <p>Client ID<p>
-            </td>
-            <td>
-              <input type="text" id="d3stripesClientId" name="d3stripesClientId" size="50" value="<?php echo htmlspecialchars($_COOKIE["d3stripesClientId"]); ?>" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="hidden" value="True" name="setParameters"/>
-              <input type="submit" value="Store Values" id="submit"/>
-            </td>
-          </tr>
-        </table>
-        </fieldset>
-      </form>
-
-    <?php else: ?>  <!-- Proceed through the main code using values currently in cookie storage-->
-
-      <?php if ( (isset($_POST['sku'])) && (strlen($_POST['sku'])>0) ): ?>  <!-- Process the submit-->
-
+    <?php else: ?>
+      <?php if ( (isset($_POST['setParameters'])) && (strlen($_POST['setParameters'])>0) ): ?>  <!-- Process parameter change -->
+        <script>
+          setCookie("d3stripesSku", "<?php echo $_POST["d3stripesSku"]; ?>", 365);
+          setCookie("d3stripesLocale", "<?php echo $_POST["d3stripesLocale"]; ?>", 365);
+          setCookie("d3stripesSiteKey", "<?php echo $_POST["d3stripesSiteKey"]; ?>", 365);
+          setCookie("d3stripesClientId", "<?php echo $_POST["d3stripesClientId"]; ?>", 365);
+        </script>
         <?php
-          //Parse POST parameters
-          $sku=$_POST['sku'];
-          $gcaptcha=$_POST['gcaptcha'];
-          $clientId=$_POST['clientId'];
-          $locale=$_POST['locale'];
+            //Sku
+            @setcookie("d3stripesSku",$_POST['d3stripesSku']);
+            $_COOKIE['d3stripesSku']=$_POST['d3stripesSku'];
+            //Locale
+            @setcookie("d3stripesLocale",$_POST['d3stripesLocale']);
+            $_COOKIE['d3stripesLocale']=$_POST['d3stripesLocale'];
+            //Captcha Site-key
+            @setcookie("d3stripesSiteKey",$_POST['d3stripesSiteKey']);
+            $_COOKIE['d3stripesSiteKey']=$_POST['d3stripesSiteKey'];
+            //ClientId
+            @setcookie("d3stripesClientId",$_POST['d3stripesClientId']);
+            $_COOKIE['d3stripesClientId']=$_POST['d3stripesClientId'];
+        ?>
+      <?php endif; ?>
+      <?php if ( (isset($_POST['resetParameters'])) && (strlen($_POST['resetParameters'])>0) ): ?>  <!-- Display form for parameter change request-->
+        <h2>Set / Change Parameters</h2>
+        <form action="/d3stryr-3stripes.php" method="post">
+          <fieldset>
+          <table>
+            <tr>
+              <td id="headers">
+                <p>SKU<p>
+              </td>
+              <td>
+                <input type="text" size="50" value="<?php echo $_COOKIE["d3stripesSku"]; ?>" name="d3stripesSku" id="d3stripesSku"/>
+              </td>
+            </tr>
+            <tr>
+              <td id="headers"><p>Locale </p></td>
+              <td valign="middle">
+                <select name="d3stripesLocale">
+                  <option value="US">US</option>
+                  <option value="CA">CA (Canada)</option>
+                  <option value="GB">GB (United Kingdom)</option>
+                  <option value="AT">AT</option>
+                  <option value="AU">AU</option>
+                  <option value="BE">BE</option>
+                  <option value="BR">BR</option>
+                  <option value="CL">CL</option>
+                  <option value="CO">CO</option>
+                  <option value="CZ">CZ</option>
+                  <option value="DE">DE</option>
+                  <option value="DK">DK</option>
+                  <option value="ES">ES</option>
+                  <option value="FI">FI</option>
+                  <option value="FR">FR</option>
+                  <option value="IE">IE</option>
+                  <option value="IT">IT</option>
+                  <option value="MX">MX</option>
+                  <option value="NL">NL</option>
+                  <option value="NZ">NZ</option>
+                  <option value="PL">PL</option>
+                  <option value="RU">RU</option>
+                  <option value="SE">SE</option>
+                  <option value="SK">SK</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td id="headers">
+                <p>Captcha SITE-KEY<p>
+              </td>
+              <td>
+                <input type="text" size="50" value="<?php echo $_COOKIE["d3stripesSiteKey"]; ?>" name="d3stripesSiteKey" id="d3stripesSiteKey"/>
+              </td>
+            </tr>
+            <tr>
+              <td id="headers">
+                <p>Client ID<p>
+              </td>
+              <td>
+                <input type="text" size="50" value="<?php echo $_COOKIE["d3stripesClientId"]; ?>" name="d3stripesClientId" id="d3stripesClientId"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="hidden" value="True" name="setParameters" id="setParameters"/>
+                <input type="submit" value="Store Values" name="submit" id="submit"/>
+              </td>
+            </tr>
+          </table>
+          </fieldset>
+        </form>
 
-          $marketsList=[];
-          $marketsList['AT']='de_AT';
-          $marketsList['AU']='en_AU';
-          $marketsList['BE']='fr_BE';
-          $marketsList['BR']='pt_BR';
-          $marketsList['CA']='en_CA';
-          $marketsList['CL']='es_CL';
-          $marketsList['CO']='es_CO';
-          $marketsList['CZ']='cz_CZ';
-          $marketsList['DE']='de_DE';
-          $marketsList['DK']='da_DK';
-          $marketsList['ES']='es_ES';
-          $marketsList['FI']='fi_FI';
-          $marketsList['FR']='fr_FR';
-          $marketsList['IE']='id_ID';
-          $marketsList['IT']='it_IT';
-          $marketsList['MX']='es_MX';
-          $marketsList['NL']='nl_NL';
-          $marketsList['NZ']='en_NZ';
-          $marketsList['PL']='pl_PL';
-          $marketsList['RU']='ru_RU';
-          $marketsList['SE']='sv_SE';
-          $marketsList['SK']='sk_SK';
-          $marketsList['GB']='en_GB';
-          $marketsList['US']='en_US';
+      <?php else: ?>  <!-- Proceed through the main code using values currently in cookie storage-->
 
-          $marketDomainList=[];
-          $marketDomainList["AT"]="adidas.at";
-          $marketDomainList["AU"]="adidas.com.au";
-          $marketDomainList["BE"]="adidas.be";
-          $marketDomainList["BR"]="adidas.com.br";
-          $marketDomainList["CA"]="adidas.ca";
-          $marketDomainList["CL"]="adidas.cl";
-          $marketDomainList["CO"]="adidas.co";
-          $marketDomainList["CZ"]="adidas.cz";
-          $marketDomainList["DE"]="adidas.de";
-          $marketDomainList["DK"]="adidas.dk";
-          $marketDomainList["ES"]="adidas.es";
-          $marketDomainList["FI"]="adidas.fi";
-          $marketDomainList["FR"]="adidas.fr";
-          $marketDomainList["IE"]="adidas.ie";
-          $marketDomainList["IT"]="adidas.it";
-          $marketDomainList["MX"]="adidas.mx";
-          $marketDomainList["NL"]="adidas.nl";
-          $marketDomainList["NZ"]="adidas.co.nz";
-          $marketDomainList["PL"]="adidas.pl";
-          $marketDomainList["RU"]="adidas.ru";
-          $marketDomainList["SE"]="adidas.se";
-          $marketDomainList["SK"]="adidas.sk";
-          $marketDomainList["GB"]="adidas.co.uk";
-          $marketDomainList["US"]="adidas.com";
+        <?php if ( (isset($_POST['sku'])) && (strlen($_POST['sku'])>0) ): ?>  <!-- Process the submit-->
 
-          $baseADCURL="http://www.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale];
-          $atcURL=$baseADCURL."/Cart-MiniAddProduct";
-          $stockURL=$baseADCURL."/Product-GetVariants?pid=".$sku;
+          <?php
+            //Parse POST parameters
+            $sku=$_POST['sku'];
+            $gcaptcha=$_POST['gcaptcha'];
+            $clientId=$_POST['clientId'];
+            $locale=$_POST['locale'];
 
-          //Thanks to @PythonKicks/TWTR for the logical fix below for CANADA and MEXICO
-          if (($locale == "US")||($locale == "CA")||($locale == "MX"))
-          {
-            $url="http://production-us-adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/".$sku."?client_id=".$clientId."&expand=availability,variations,prices";
-          }
-          else
-          {
-            $url="http://production.store.adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/".$sku."?client_id=".$clientId."&expand=availability,variations,prices";
-          }
+            $baseADCURL="http://www.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale];
+            $atcURL=$baseADCURL."/Cart-MiniAddProduct";
+            $stockURL=$baseADCURL."/Product-GetVariants?pid=".$sku;
 
-          $useragents=array(
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4",
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4",
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53",
-          "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5",
-          "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5",
-          "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53",
-          "Mozilla/5.0 (iPad; CPU OS 4_3_5 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8L1 Safari/6533.18.5",
-          "Mozilla/5.0 (Linux; U; en-us; KFAPWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true",
-          "Mozilla/5.0 (Linux; U; en-us; KFTHWI Build/JDQ39) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.13 Safari/535.19 Silk-Accelerated=true",
-          "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.0.141.16-Gen4_11004310) AppleWebkit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true",
-          "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Nexus S Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
-          "Mozilla/5.0 (Linux; Android 4.3; Nexus 7 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36",
-          "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19",
-          "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+",
-          "Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36",
-          "Mozilla/5.0 (Linux; U; Android 2.3; en-us; SAMSUNG-SGH-I717 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
-          "Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
-          "Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
-          "Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36",
-          "Mozilla/5.0 (Linux; U; Android 2.2; en-us; SCH-I800 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36");
-          //Randomize our User-Agent
-          $useragent=$useragents[rand()%sizeof($useragents)];
-          $curl = curl_init();
-          curl_setopt($curl,CURLOPT_HEADER,false);
-          curl_setopt($curl,CURLOPT_FOLLOWLOCATION, 1);
-          curl_setopt($curl,CURLINFO_HEADER_OUT, 1);
-          curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
-          curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
-          curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, 0);
-          curl_setopt($curl,CURLOPT_USERAGENT, $useragent);
-          curl_setopt($curl,CURLOPT_HTTPHEADER, array("User-Agent:".$useragent));
-          curl_setopt($curl,CURLOPT_URL, $url);
-          $response = curl_exec($curl) or die(curl_error($curl));
-          curl_setopt($curl,CURLOPT_URL, $stockURL);
-          $responseStock = curl_exec($curl) or die(curl_error($curl));
-          $exceptionType="None";
-          $exception=False;
-          $stockException=False;
-          $clientStockException=False;
-          $variations=[];
-          $sizeLookup=[];
-
-          //Get product information
-          try
-          {
-            @$JSON=(json_decode($response,true));
-            if (isset($JSON["id"]))
+            //Thanks to @PythonKicks/TWTR for the logical fix below for CANADA and MEXICO
+            if (($locale == "US")||($locale == "CA")||($locale == "MX"))
             {
-              @$productId=$JSON["id"];
-              @$productInventory=$JSON["inventory"]["ats"];
-              @$productStock=$JSON["inventory"]["stock_level"];
-              @$productMasterId=$JSON["master"]["master_id"];
-              @$productName=$JSON["name"];
-              @$productPrice=$JSON["variants"][0]["price"]." ".$locale." Currency";
-              @$productCollection=$JSON["c_collection"][0];
-              @$productColor=$JSON["c_color"];
-              @$productDivision=$JSON["c_division"];
+              $url="http://production-us-adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/".$sku."?client_id=".$clientId."&expand=availability,variations,prices";
             }
             else
             {
-              throw new Exception();
+              $url="http://production.store.adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/".$sku."?client_id=".$clientId."&expand=availability,variations,prices";
             }
-          }
-          catch (Exception $e)
-          {
-            $exceptionType="Loading product JSON";
-          }
-          //Check if the field is set
-          if (isset($JSON["c_enableTwitterBuyButton"]))
-          {
-            $productTwitterBuyable=(string) $JSON["c_enableTwitterBuyButton"];
-          }
-          else
-          {
-            $productTwitterBuyable="False";
-          }
 
-          //Create lookup table such that sizeLookup["600"]==>"8.5"
-          try
-          {
+            //Randomize our User-Agent
+            $useragent=$useragents[rand()%sizeof($useragents)];
+            $curl = curl_init();
+            curl_setopt($curl,CURLOPT_HEADER,false);
+            curl_setopt($curl,CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($curl,CURLINFO_HEADER_OUT, 1);
+            curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($curl,CURLOPT_USERAGENT, $useragent);
+            curl_setopt($curl,CURLOPT_HTTPHEADER, array("User-Agent:".$useragent));
+            curl_setopt($curl,CURLOPT_URL, $url);
+            $response = curl_exec($curl) or die(curl_error($curl));
+            curl_setopt($curl,CURLOPT_URL, $stockURL);
+            $responseStock = curl_exec($curl) or die(curl_error($curl));
+            $exceptionType="None";
+            $exception=False;
+            $stockException=False;
+            $clientStockException=False;
+            $variations=[];
             $sizeLookup=[];
-            if (isset($JSON["variation_attributes"][0]["values"]))
-            {
-              foreach($JSON["variation_attributes"][0]["values"] as $variation)
-              {
-                $sizeLookup[$variation["value"]]=$variation["name"];
-              }
-            }
-            else
-            {
-              throw new Exception();
-            }
-          }
-          catch (Exception $e)
-          {
-            $exceptionType="Creating size lookup table";
-          }
 
-          //Variant array
-          try
-          {
-            if (isset($JSON["variants"]))
+            //Get product information
+            try
             {
-              foreach($JSON["variants"] as $variation)
+              @$JSON=(json_decode($response,true));
+              if (isset($JSON["id"]))
               {
-                $newVariation=[];
-                $newVariation[0]=$variation["product_id"];
-                $newVariation[1]=$variation["variation_values"]["size"];
-                if ($variation["orderable"])
-                {
-                  $newVariation[2]="Yes";
-                }
-                else
-                {
-                  $newVariation[2]="No";
-                }
-                array_push($variations,$newVariation);
-              }
-            }
-            else
-            {
-              throw new Exception();
-            }
-          }
-          catch (Exception $e)
-          {
-            $exceptionType="Creating array of variants";
-          }
-
-          //Stock count from clientId endpoint
-          try
-          {
-            if (isset($JSON["variants"]))
-            {
-              $queryString="";
-              foreach($JSON["variants"] as $variation)
-              {
-                $queryString=$queryString.$variation["product_id"].",";
-              }
-
-               //Thanks to @PythonKicks/TWTR for the logical fix below for CANADA and MEXICO
-              if (($locale == "US")||($locale == "CA")||($locale == "MX"))
-              {
-                $urlClientStock="http://production-us-adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/(".$queryString.")?client_id=".$clientId."&expand=availability,variations,prices";
+                @$productId=$JSON["id"];
+                @$productInventory=$JSON["inventory"]["ats"];
+                @$productStock=$JSON["inventory"]["stock_level"];
+                @$productMasterId=$JSON["master"]["master_id"];
+                @$productName=$JSON["name"];
+                @$productPrice=$JSON["variants"][0]["price"]." ".$locale." Currency";
+                @$productCollection=$JSON["c_collection"][0];
+                @$productColor=$JSON["c_color"];
+                @$productDivision=$JSON["c_division"];
               }
               else
               {
-                $urlClientStock="http://production.store.adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/(".$queryString.")?client_id=".$clientId."&expand=availability,variations,prices";
+                throw new Exception();
               }
+            }
+            catch (Exception $e)
+            {
+              $exceptionType="Loading product JSON";
+            }
+            //Check if the field is set
+            if (isset($JSON["c_enableTwitterBuyButton"]))
+            {
+              $productTwitterBuyable=(string) $JSON["c_enableTwitterBuyButton"];
+            }
+            else
+            {
+              $productTwitterBuyable="False";
+            }
 
-              curl_setopt($curl,CURLOPT_URL, $urlClientStock);
-              $responseClientStock = curl_exec($curl) or die(curl_error($curl));
-              curl_close($curl);
-
-              $clientStockCount=[];
-              @$clientStockJSON=(json_decode($responseClientStock,true));
-              if (isset($clientStockJSON))
+            //Create lookup table such that sizeLookup["600"]==>"8.5"
+            try
+            {
+              $sizeLookup=[];
+              if (isset($JSON["variation_attributes"][0]["values"]))
               {
-                foreach($clientStockJSON["data"] as $variant)
+                foreach($JSON["variation_attributes"][0]["values"] as $variation)
                 {
-                  $clientStockCount[$variant["id"]]=(int) $variant["inventory"]["stock_level"];
+                  $sizeLookup[$variation["value"]]=$variation["name"];
                 }
               }
               else
@@ -1096,212 +1131,344 @@
                 throw new Exception();
               }
             }
-            else
+            catch (Exception $e)
             {
-              throw new Exception();
+              $exceptionType="Creating size lookup table";
             }
-          }
-          catch (Exception $e)
-          {
-            $clientStockException=True;
-            $exceptionType="Loading client stock";
-          }
 
-          //Stock count from Product-GetVariants endpoint
-          try
-          {
-            $stockCount=[];
-            @$stockJSON=(json_decode($responseStock,true));
-            if (isset($stockJSON))
+            //Variant array
+            try
             {
-              foreach($stockJSON["variations"]["variants"] as $variant)
+              if (isset($JSON["variants"]))
               {
-                $stockCount[$variant["id"]]=(int) $variant["ATS"];
+                foreach($JSON["variants"] as $variation)
+                {
+                  $newVariation=[];
+                  $newVariation[0]=$variation["product_id"];
+                  $newVariation[1]=$variation["variation_values"]["size"];
+                  if ($variation["orderable"])
+                  {
+                    $newVariation[2]="Yes";
+                  }
+                  else
+                  {
+                    $newVariation[2]="No";
+                  }
+                  array_push($variations,$newVariation);
+                }
+              }
+              else
+              {
+                throw new Exception();
               }
             }
-            else
+            catch (Exception $e)
             {
-              throw new Exception();
+              $exceptionType="Creating array of variants";
             }
-          }
-          catch (Exception $e)
-          {
-            $stockException=True;
-            $exceptionType="Loading current stock";
-          }
-        ?>
-        <?php if (isset($JSON["id"])): ?>
-          <h2>
-            <table>
-              <tr><td id="headers"><b>Locale         </b></td><td><?php echo $locale;?>               </td></tr>
-              <tr><td id="headers"><b>MasterId       </b></td><td><?php echo $productMasterId;?>      </td></tr>
-              <tr><td id="headers"><b>Name           </b></td><td><?php echo $productName;?>          </td></tr>
-              <tr><td id="headers"><b>Collection     </b></td><td><?php echo $productCollection;?>    </td></tr>
-              <tr><td id="headers"><b>Color          </b></td><td><?php echo $productColor;?>         </td></tr>
-              <tr><td id="headers"><b>Division       </b></td><td><?php echo $productDivision;?>      </td></tr>
-              <tr><td id="headers"><b>Inventory      </b></td><td><?php echo $productInventory;?>     </td></tr>
-              <tr><td id="headers"><b>Stock          </b></td><td><?php echo $productStock;?>         </td></tr>
-              <tr><td id="headers"><b>Price          </b></td><td><?php echo $productPrice;?>         </td></tr>
-              <tr><td id="headers"><b>Twitter Buyable</b></td><td><?php echo $productTwitterBuyable;?></td></tr>
-              <tr><td id="headers"><b>Exceptions     </b></td><td><?php echo $exceptionType;?>        </td></tr>
-            </table>
-          </h2>
-          <h2>
-            <table>
-              <tr>
-                <th id="headers">Product Id</th>
-                <th id="headers">Size<br>(US)</th>
-                <th id="headers">Orderable*</th>
-                <th id="headers">Current<br>Stock</th>
-                <th id="headers">Client<br>Stock</th>
-              </tr>
-            <?php foreach($variations as $variant): ?>
-              <tr>
-                <td>
-                  <?php
-                    $payload="layer=Add+To+Bag+overlay&pid=".$variant[0]."&Quantit=1&masterPid=".$productMasterId."&ajax=true";
-                    if (strlen($gcaptcha) > 0)
-                    {
-                      $payload="clientId=".$clientId."&".$payload."&g-recaptcha-response=".$gcaptcha."&x-PrdRtt=".$gcaptcha;
-                    }
-                    $variantATCURL=$atcURL."?".$payload;
-                  ?>
-                  <a href="<?php echo htmlspecialchars($variantATCURL); ?>" target="_blank">
-                    <?php echo $variant[0]; ?>
-                  </a>
-                </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sizeLookup[$variant[1]]; ?></td>
-                <td><center><?php echo $variant[2]; ?></center></td>
-                <?php if (!$stockException): ?>
-                  <?php if ($stockCount[$variant[0]] > 0): ?>
-                    <td><center><b><font color='green'><?php echo $stockCount[$variant[0]]; ?></font></b></center></td>
-                  <?php else: ?>
-                    <td><center><b><font color='red'><?php echo $stockCount[$variant[0]]; ?></font></b></center></td>
-                  <?php endif; ?>
-                <?php else: ?>
-                  <td><center>?</center></td>
-                <?php endif; ?>
-                <?php if (!$clientStockException): ?>
-                  <?php if ($clientStockCount[$variant[0]] > 0): ?>
-                    <td><center><b><font color='green'><?php echo $clientStockCount[$variant[0]]; ?></font></b></center></td>
-                  <?php else: ?>
-                    <td><center><b><font color='red'><?php echo $clientStockCount[$variant[0]]; ?></font></b></center></td>
-                  <?php endif; ?>
-                <?php else: ?>
-                  <td><center>?</center></td>
-                <?php endif; ?>
-              </tr>
-            <?php endforeach; ?>
-            </table>
-          </h2>
-          <p><br>* indentifies if the particular size will be purchable on release</p>
-        <?php else: ?>
-        <!-- Something not working so we let the end user know -->
-        <h2><?php echo $exceptionType; ?></h2>
-        <h1><center>Chicken Butt<center></h1>
-        <?php endif; ?> <!-- Finish handling POST request -->
 
-      <?php else: ?> <!-- Load main php page options with values from cookies-->
+            //Stock count from clientId endpoint
+            try
+            {
+              if (isset($JSON["variants"]))
+              {
+                $queryString="";
+                foreach($JSON["variants"] as $variation)
+                {
+                  $queryString=$queryString.$variation["product_id"].",";
+                }
 
-        <?php
-          //SKU is obtained from cookies
-          @$sku=$_COOKIE['d3stripesSku'];
-          //Client ID is obtained from cookies
-          @$clientId=$_COOKIE['d3stripesClientId'];
-          //Captcha site-key is obtained from cookies
-          @$sitekey=$_COOKIE['d3stripesSiteKey'];
-          //Locale is obtained from cookies
-          @$locale=$_COOKIE['d3stripesLocale'];
-        ?>
-        <?php if (!isset($sku)): ?>
-        <table width="100%">
-          <tr>
-            <td>
-              <fieldset>
-                <h2><font color="red">Refresh your browser again in order for default cookies to stick.</font></h2>
-              </fieldset>
-            </td>
-          </tr>
-        </table>
-        <?php endif; ?>
-        <table width="100%">
-          <form action="/d3stryr-3stripes.php" method="post">
+                 //Thanks to @PythonKicks/TWTR for the logical fix below for CANADA and MEXICO
+                if (($locale == "US")||($locale == "CA")||($locale == "MX"))
+                {
+                  $urlClientStock="http://production-us-adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/(".$queryString.")?client_id=".$clientId."&expand=availability,variations,prices";
+                }
+                else
+                {
+                  $urlClientStock="http://production.store.adidasgroup.demandware.net/s/adidas-".$locale."/dw/shop/v16_5/products/(".$queryString.")?client_id=".$clientId."&expand=availability,variations,prices";
+                }
+
+                curl_setopt($curl,CURLOPT_URL, $urlClientStock);
+                $responseClientStock = curl_exec($curl) or die(curl_error($curl));
+                curl_close($curl);
+
+                $clientStockCount=[];
+                @$clientStockJSON=(json_decode($responseClientStock,true));
+                if (isset($clientStockJSON))
+                {
+                  foreach($clientStockJSON["data"] as $variant)
+                  {
+                    $clientStockCount[$variant["id"]]=(int) $variant["inventory"]["stock_level"];
+                  }
+                }
+                else
+                {
+                  throw new Exception();
+                }
+              }
+              else
+              {
+                throw new Exception();
+              }
+            }
+            catch (Exception $e)
+            {
+              $clientStockException=True;
+              $exceptionType="Loading client stock";
+            }
+
+            //Stock count from Product-GetVariants endpoint
+            try
+            {
+              $stockCount=[];
+              @$stockJSON=(json_decode($responseStock,true));
+              if (isset($stockJSON))
+              {
+                foreach($stockJSON["variations"]["variants"] as $variant)
+                {
+                  $stockCount[$variant["id"]]=(int) $variant["ATS"];
+                }
+              }
+              else
+              {
+                throw new Exception();
+              }
+            }
+            catch (Exception $e)
+            {
+              $stockException=True;
+              $exceptionType="Loading current stock";
+            }
+          ?>
+          <?php if (isset($JSON["id"])): ?>
+            <h2>
+              <table>
+                <tr><td id="headers"><b>Locale         </b></td><td><?php echo $locale;?>               </td></tr>
+                <tr><td id="headers"><b>MasterId       </b></td><td><?php echo $productMasterId;?>      </td></tr>
+                <tr><td id="headers"><b>Name           </b></td><td><?php echo $productName;?>          </td></tr>
+                <tr><td id="headers"><b>Collection     </b></td><td><?php echo $productCollection;?>    </td></tr>
+                <tr><td id="headers"><b>Color          </b></td><td><?php echo $productColor;?>         </td></tr>
+                <tr><td id="headers"><b>Division       </b></td><td><?php echo $productDivision;?>      </td></tr>
+                <tr><td id="headers"><b>Inventory      </b></td><td><?php echo $productInventory;?>     </td></tr>
+                <tr><td id="headers"><b>Stock          </b></td><td><?php echo $productStock;?>         </td></tr>
+                <tr><td id="headers"><b>Price          </b></td><td><?php echo $productPrice;?>         </td></tr>
+                <tr><td id="headers"><b>Twitter Buyable</b></td><td><?php echo $productTwitterBuyable;?></td></tr>
+                <tr><td id="headers"><b>Exceptions     </b></td><td><?php echo $exceptionType;?>        </td></tr>
+              </table>
+            </h2>
+            <h2>
+              <table>
+                <tr>
+                  <th id="headers">Product Id</th>
+                  <th id="headers">Orderable*</th>
+                  <th id="headers">Current<br>Stock</th>
+                  <th id="headers">Client<br>Stock</th>
+                  <th id="headers">Size<br>(US)</th>
+                  <th id="headers">ATC<br><br>
+                    <?php if (strlen($gcaptcha)<1): ?>
+                      <br><font color="red">CAPTCHA<br>UNSOLVED</font>
+                    <?php else: ?>
+                      <br><font color="green">CAPTCHA<br>SOLVED</font>
+                    <?php endif; ?>
+                  </th>
+                  <th id="headers">ATC<br>+<br>ClientId
+                    <?php if (strlen($gcaptcha)<1): ?>
+                      <br><font color="red">CAPTCHA<br>UNSOLVED</font>
+                    <?php else: ?>
+                      <br><font color="green">CAPTCHA<br>SOLVED</font>
+                    <?php endif; ?>
+                  </th>
+                  <th id="headers">ATC<br>via<br>Cont. Shopping
+                    <?php if (strlen($gcaptcha)<1): ?>
+                      <br><font color="red">CAPTCHA<br>UNSOLVED</font>
+                    <?php else: ?>
+                      <br><font color="green">CAPTCHA<br>SOLVED</font>
+                    <?php endif; ?>
+                  </th>
+                </tr>
+              <?php foreach($variations as $variant): ?>
+                <tr>
+                  <td>
+                      <?php echo $variant[0]; ?>
+                  </td>
+                  <td><center><?php echo $variant[2]; ?></center></td>
+                  <?php if (!$stockException): ?>
+                    <?php if ($stockCount[$variant[0]] > 0): ?>
+                      <td><center><b><font color='green'><?php echo $stockCount[$variant[0]]; ?></font></b></center></td>
+                    <?php else: ?>
+                      <td><center><b><font color='red'><?php echo $stockCount[$variant[0]]; ?></font></b></center></td>
+                    <?php endif; ?>
+                  <?php else: ?>
+                    <td><center>?</center></td>
+                  <?php endif; ?>
+                  <?php if (!$clientStockException): ?>
+                    <?php if ($clientStockCount[$variant[0]] > 0): ?>
+                      <td><center><b><font color='green'><?php echo $clientStockCount[$variant[0]]; ?></font></b></center></td>
+                    <?php else: ?>
+                      <td><center><b><font color='red'><?php echo $clientStockCount[$variant[0]]; ?></font></b></center></td>
+                    <?php endif; ?>
+                  <?php else: ?>
+                    <td><center>?</center></td>
+                  <?php endif; ?>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sizeLookup[$variant[1]]; ?></td>
+                  <td align="center">
+                    <?php
+                      $payload="layer=Add+To+Bag+overlay&pid=".$variant[0]."&Quantit=1&masterPid=".$productMasterId."&ajax=true";
+                      if (strlen($gcaptcha) > 0)
+                      {
+                        $payload=$payload."&g-recaptcha-response=".$gcaptcha."&x-PrdRtt=".$gcaptcha;
+                      }
+                      $variantATCURL=$atcURL."?".$payload;
+                    ?>
+                    <a href="<?php echo $variantATCURL; ?>" target="_blank">
+                      <?php echo $variant[0]; ?>
+                    </a>
+                  </td>
+                  <td align="center">
+                    <?php
+                      $payload="layer=Add+To+Bag+overlay&pid=".$variant[0]."&Quantit=1&masterPid=".$productMasterId."&ajax=true";
+                      if (strlen($gcaptcha) > 0)
+                      {
+                        $payload="clientId=".$clientId."&".$payload."&g-recaptcha-response=".$gcaptcha."&x-PrdRtt=".$gcaptcha;
+                      }
+                      else
+                      {
+                        $payload="clientId=".$clientId."&".$payload;
+                      }
+                      $variantATCURL=$atcURL."?".$payload;
+                    ?>
+                    <a href="<?php echo $variantATCURL; ?>" target="_blank">
+                      <?php echo $variant[0]; ?>
+                    </a>
+                  </td>
+<!--                  <form target="_blank" action="/d3stryr-3stripes.php" method="post"> -->
+                  <form action="/d3stryr-3stripes.php" method="post">
+                    <td valign="middle">
+                      <input type="hidden" value="<?php echo $clientId; ?>" name="clientId" id="clientId"/>
+                      <input type="hidden" value="<?php echo $locale; ?>" name="locale" id="locale"/>
+                      <input type="hidden" value="<?php echo $gcaptcha; ?>" name="gcaptcha" id="gcaptcha"/>
+                      <input type="hidden" value="<?php echo $variant[0]; ?>" name="pid" id="pid"/>
+                      <input type="hidden" value="<?php echo $productMasterId; ?>" name="masterPid" id="masterPid"/>
+                      <input type="hidden" value="True" name="atcPostContinueShopping" id="atcPostContinueShopping"/>
+                      <!--
+                      <button type="submit" value="<?php echo $variant[0]; ?>" name="submit" id="submit"><?php echo $variant[0]; ?></button>
+                      -->
+                      <button type="submit" value="<?php echo $variant[0]; ?>" name="submit" id="submit">Under Development</button>
+                    </td>
+                  </form>
+                </tr>
+              <?php endforeach; ?>
+              </table>
+            </h2>
+            <p><br>* indentifies if the particular size will be purchable on release</p>
+          <?php else: ?>
+          <!-- Something not working so we let the end user know -->
+          <h2><?php echo $exceptionType; ?></h2>
+          <h1><center>Chicken Butt<center></h1>
+          <?php endif; ?> <!-- Finish handling POST request -->
+
+        <?php else: ?> <!-- Load main php page options with values from cookies-->
+
+          <?php
+            //SKU is obtained from cookies
+            @$sku=$_COOKIE['d3stripesSku'];
+            //Client ID is obtained from cookies
+            @$clientId=$_COOKIE['d3stripesClientId'];
+            //Captcha site-key is obtained from cookies
+            @$sitekey=$_COOKIE['d3stripesSiteKey'];
+            //Locale is obtained from cookies
+            @$locale=$_COOKIE['d3stripesLocale'];
+          ?>
+          <?php if (!isset($sku)): ?>
+          <table width="100%">
             <tr>
               <td>
                 <fieldset>
-                  <h2>Locale: <?php echo htmlspecialchars($locale); ?><br>
-                    <input type="hidden" value="True" name="resetParameters"/>
-                    <input type="submit" value="Set/Change Parameters" id="submit"/>
-                  </h2>
+                  <h2><font color="red">Refresh your browser again in order for default cookies to stick.</font></h2>
                 </fieldset>
               </td>
             </tr>
-          </form>
-        </table>
-        <table width="100%">
-          <tr>
-            <td valign="top">
-              <form action="/d3stryr-3stripes.php" method="post">
+          </table>
+          <?php endif; ?>
+          <table width="100%">
+            <form action="/d3stryr-3stripes.php" method="post">
+              <tr>
+                <td>
+                  <fieldset>
+                    <h2>Locale: <?php echo $locale; ?><br>
+                      <input type="hidden" value="True" name="resetParameters" id="resetParameters"/>
+                      <input type="submit" value="Set/Change Parameters" name="submit" id="submit"/>
+                    </h2>
+                  </fieldset>
+                </td>
+              </tr>
+            </form>
+          </table>
+          <table width="100%">
+            <tr>
+              <td valign="top">
+                <form action="/d3stryr-3stripes.php" method="post">
+                  <fieldset>
+                    <h2>Captcha SITE-KEY<br>
+                      <input type="text" size="50" value="<?php echo $sitekey; ?>" name="gsk" id="gsk"/>
+                    </h2>
+                    <h2>Google  Captcha<br>
+                      <div class="g-recaptcha" data-sitekey="<?php echo $sitekey; ?>"></div>
+                      <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                    </h2>
+                    <p>
+                      <input type="hidden" value="<?php echo $locale; ?>" name="locale" id="locale"/>
+                      <input type="submit" value="Transfer Google Captcha Token" name="submit" id="submit"/>
+                    </p>
+                  </fieldset>
+                </form>
+
+                <form action="/d3stryr-3stripes.php" method="post">
+                  <fieldset>
+                    <h2>SKU<br>
+                      <input type="text" value="<?php echo $sku; ?>" name="sku" id="sku"/>
+                    </h2>
+                    <h2>Client Id<br>
+                      <input name="clientId" id="clientId" size="50" value="<?php echo $clientId; ?>"></input>
+                    </h2>
+                    <h2>g-captcha Response<br>
+                    <?php
+                      if ( (isset($_POST['g-recaptcha-response'])) && (strlen($_POST['g-recaptcha-response'])>0) )
+                      {
+                        $gcaptcha=$_POST['g-recaptcha-response'];
+                      }
+                      else
+                      {
+                        $gcaptcha="";
+                      }
+                    ?>
+                      <textarea name="gcaptcha" id="gcaptcha" cols="50" rows="5"><?php echo $gcaptcha; ?></textarea>
+                    </h2>
+                    <input type="hidden" value="<?php echo $locale; ?>" name="locale" id="locale"/>
+                    <p><button type="submit" name="submit" id="submit">Submit</button></p>
+                  </fieldset>
+                </form>
+
                 <fieldset>
-                  <h2>Captcha SITE-KEY<br>
-                    <input type="text" id="gsk" name="gsk" size="50" value="<?php echo htmlspecialchars($sitekey); ?>" />
-                  </h2>
-                  <h2>Google  Captcha<br>
-                    <div class="g-recaptcha" data-sitekey="<?php echo htmlspecialchars($sitekey); ?>"></div>
-                    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
-                  </h2>
-                  <p>
-                    <input type="hidden" value="<?php echo htmlspecialchars($locale); ?>" name="locale" id="locale"/>
-                    <input type="submit" value="Transfer Google Captcha Token" id="submit"/>
+                  <p>Instructions
+                  <br>1. (if needed) Set/Change parameters
+                  <br>2. (if needed) Solve Google Captcha then click Transfer Google Captcha Token
+                  <br>3. (required) Enter a valid SKU from Adidas
+                  <br>4. Click submit
                   </p>
                 </fieldset>
-              </form>
 
-              <form action="/d3stryr-3stripes.php" method="post">
+              </td>
+              <td width="50%">
                 <fieldset>
-                  <h2>SKU<br>
-                    <input type="text" id="sku" name="sku" value="<?php echo htmlspecialchars($sku); ?>" />
-                  </h2>
-                  <h2>Client Id<br>
-                    <input name="clientId" id="clientId" size="50" value="<?php echo htmlspecialchars($clientId); ?>"></input>
-                  </h2>
-                  <h2>g-captcha Response<br>
-                  <?php
-                    if ( (isset($_POST['g-recaptcha-response'])) && (strlen($_POST['g-recaptcha-response'])>0) )
-                    {
-                      $gcaptcha=$_POST['g-recaptcha-response'];
-                    }
-                    else
-                    {
-                      $gcaptcha="";
-                    }
-                  ?>
-                    <textarea name="gcaptcha" id="gcaptcha" cols="50" rows="5"><?php echo htmlspecialchars($gcaptcha); ?></textarea>
-                  </h2>
-                  <input type="hidden" value="<?php echo htmlspecialchars($locale); ?>" name="locale" id="locale"/>
-                  <p><button type="submit">Submit</button></p>
+                <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by SOLEMARTYR</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </fieldset>
-              </form>
-
-              <fieldset>
-                <p>Instructions
-                <br>1. (if needed) Set/Change parameters
-                <br>2. (if needed) Solve Google Captcha then click Transfer Google Captcha Token
-                <br>3. (required) Enter a valid SKU from Adidas
-                <br>4. Click submit
-                </p>
-              </fieldset>
-
-            </td>
-            <td width="50%">
-              <fieldset>
-              <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by SOLEMARTYR</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-              </fieldset>
-            </td>
-          </tr>
-        </table>
-      <?php endif; ?>
-    <?php endif; ?> <!--IF RESET PARAMETERS -->
+              </td>
+            </tr>
+          </table>
+        <?php endif; ?>
+      <?php endif; ?>  <!--IF RESET PARAMETERS -->
+    <?php endif; ?>  <!--IF ATC VIA CONTINUE SHOPPING -->
   </body>
 </html>
 <!--
