@@ -1285,9 +1285,9 @@
 
               <fieldset>
                 <p>Instructions
-                <br>1. Set/Change parameters (if needed)
-                <br>2. Solve Google Captcha (if needed)
-                <br>3. Enter a valid SKU from Adidas (required)
+                <br>1. (if needed) Set/Change parameters
+                <br>2. (if needed) Solve Google Captcha then click Transfer Google Captcha Token
+                <br>3. (required) Enter a valid SKU from Adidas
                 <br>4. Click submit
                 </p>
               </fieldset>
@@ -1351,6 +1351,6 @@ php -S 127.0.0.1:8000
 
 http://dev.adidas.com:8000/d3stryr-3stripes.php
 
-13) When you are done. Just close the terminal window.  
+13) When you are done. Just close the terminal window.
 14) If you want to run the script again just follow from steps 12.
 -->
