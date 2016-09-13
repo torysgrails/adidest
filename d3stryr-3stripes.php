@@ -1315,33 +1315,42 @@
   https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 -->
 <!--
-Usage (no local captcha support):
-Download d3stryr-3stripes.php
-Install PHP version 5
-Navigate to the folder containing d3stryr-3stripes.php ** IMPORTANT **
-Then bring up a terminal and invoke:
-
-php -S localhost:8000
-
-Then open up a browser window and navigate to:
-
-http://localhost:8000/d3stryr-3stripes.php
-
-========================================================================
-
 Usage (with local captcha support):
-Download d3stryr-3stripes.php
-Install PHP version 5
-Navigate to the folder containing d3stryr-3stripes.php ** IMPORTANT **
-Then bring up a terminal and invoke:
 
-echo '127.0.0.1 dev.adidas.com' | sudo tee -a /etc/hosts > /dev/null
+Step-by-step instructions:
 
-then launch
+1) Click "Download ZIP"
+2) If you are on a Mac this will save the zip to the Download folder.
+3) Unzip the file you just download.
+4) Open the folder you just unzipped.
+5) Move the d3stryr-3stripes.php file to your home folder on your mac. The home folder is normally the folder with your username.
+6) Open up a terminal window.
+7) Type (or copy & paste) the following command below and then hit enter:
+
+php -v
+
+8) If the out of the command shows you a number larger than 5.4 after PHP then you are good to go. For the really dumb sneaker heads: 5.5 is larger than 5.4
+
+However, if you are running a version less than 5.4 (say 5.3) then I'm not sure if it will or will not work. But you can proceed and pray.
+
+9) Type (or copy & paste) the following command below into the terminal window and then hit enter:
+
+echo '127.0.0.1 dev.adidas.com' | sudo tee -a /etc/hosts > /dev/null && echo DONE
+
+10) It will prompt you for your password. Enter it in. It will not show you your password as you enter it in. But if you enter it in correctly then you should see:
+
+DONE
+
+11) Step #10 only has to be done once and never again if you enter your password in correctly.
+12)  Type (or copy & paste) the following command below into the terminal window and then hit enter:
 
 php -S 127.0.0.1:8000
 
-Then open up a browser window and navigate to:
+
+12) Now open a browser window and navigate to:
 
 http://dev.adidas.com:8000/d3stryr-3stripes.php
+
+13) When you are done. Just close the terminal window.  
+14) If you want to run the script again just follow from steps 12.
 -->
