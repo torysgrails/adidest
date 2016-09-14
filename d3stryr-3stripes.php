@@ -703,6 +703,10 @@
     }
 
     function checkCookie() {
+        if (d3stripesSku == "") {
+          setCookie("d3stripesSku", "XX####", 365);
+        }
+
         var d3stripesSku = getCookie("d3stripesSku");
         if (d3stripesSku == "") {
           setCookie("d3stripesSku", "XX####", 365);
@@ -832,115 +836,6 @@
     $marketDomainList["US"]="adidas.com";
   ?>
   <body onload="checkCookie()">
-    <?php if ( (isset($_POST['atcPostContinueShopping'])) && (strlen($_POST['atcPostContinueShopping'])>0) ): ?>  <!-- Process ATC via Continue Shopping -->
-      <?php
-        //Parse POST parameters
-        echo "<h2><font color='red'>STILL UNDER DEVELOPMENT</font></h2>";
-        $pid=$_POST['pid'];
-        $masterPid=$_POST['masterPid'];
-        $gcaptcha=$_POST['gcaptcha'];
-        $clientId=$_POST['clientId'];
-        $locale=$_POST['locale'];
-
-        $baseRestoreBasketUrl="http://www.".$marketDomainList[$locale];
-        $baseADCURL="http://www.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale];
-        $atcURL=$baseADCURL."/Cart-MiniAddProduct";
-
-        if ((strlen($gcaptcha)>1))
-        {
-          $backDoorADCURL=$atcURL."?pid=".$pid."&masterPid=".$masterPid."&ajax=true&g-recaptcha-response=".$gcaptcha;
-        }
-        else
-        {
-          $backDoorADCURL=$atcURL."?pid=".$pid."&masterPid=".$masterPid."&ajax=true";
-        }
-
-        //Randomize our User-Agent
-        $useragent=$useragents[rand()%sizeof($useragents)];
-
-        $headers=array();
-        $headers["User-Agent"]=$useragent;
-        $headers["Accept"]="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
-        $headers["Accept-Encoding"]="gzip, deflate";
-        $headers["Accept-Language"]="en-US,en;q=0.8,fr;q=0.6";
-        $headers["Cache-Control"]="no-cache";
-        $headers["Connection"]="keep-alive";
-        $headers["Content-Type"]="application/x-www-form-urlencoded";
-        $headers["DN"]="1";
-        $headers["Host"]="m".$marketDomainList[$locale];
-        $headers["Pragma"]="no-cache";
-        $headers["Upgrade-Insecure-Requests"]="1";
-        $headers["Referer"]="https://m.".$marketDomainList[$locale]."/on/demandware.store/Sites-adidas-".$locale."-Site/".$marketsList[$locale]."/Cart-Show";
-        $headers["Origin"]="https://m.".$marketDomainList[$locale];
-
-        $data=array();
-        $data["dwfrm_cart_continueShopping"]="Continue Shopping";
-
-        $curl = curl_init();
-        curl_setopt($curl,CURLOPT_HEADER,1);
-        curl_setopt($curl,CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($curl,CURLINFO_HEADER_OUT, 1);
-        curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($curl,CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($curl,CURLOPT_URL, $backDoorADCURL);
-        curl_setopt($curl,CURLOPT_POST, sizeof($data));
-        curl_setopt($curl,CURLOPT_POSTFIELDS, $data);
-        $response = curl_exec($curl) or die(curl_error($curl));
-        curl_close($curl);
-
-        //We carted but all the cookies are within the curl session.
-        //We need to pass these cookies for the cart into the client (browser).
-
-//      preg_match_all("/Set-Cookie:\s*([^\/]*)\//", $response, $matches);
-        //Match all Set-Cookie lines
-        preg_match_all("/Set-Cookie:\s*(.*)\n/", $response, $matches);
-
-        $setCookies=$matches[0];
-
-        //Strip out 'Set-Cookie: ' string so we can explode into arrays and ultimately a JSON
-        for ($i=0;$i < count($setCookies); $i++)
-        {
-          $setCookies[$i]=str_replace("Set-Cookie: ","",$setCookies[$i]);
-        }
-
-        //Need to create a a setCookieJSONArray
-
-        foreach($setCookies as $setCookie)
-        {
-
-          //Need to explode each $setCookie by ";" into $cookieExploded
-          //Need to explode each $cookieExploded by "=" into $cookedieExploded
-          //Need to create $tempJSON and add $tempJSON[$cookedieExploded[0]]=$cookedieExploded[1]
-          //Need to append $tempJSON into $setCookieJSONArray
-          //Need to think of a better variable name than cookedieExploded
-
-          if (strpos($setCookie,'restoreBasketUrl') !== False)
-          {
-            echo "<h2><font color='green'>restoreBasketUrl:</font><br>";
-            $cookieExploded=explode(";",$setCookie);
-            foreach($cookieExploded as $cookedie)
-            {
-              $cookedieExploded=explode("=",$cookedie);
-
-              //Test parsing restoreBasketUrl
-              if (strpos($cookedieExploded[0],'restoreBasketUrl') !== False)
-              {
-                $restoreBasketUrl=$baseRestoreBasketUrl.urldecode($cookedieExploded[1]);
-                echo "<a href='".$restoreBasketUrl."'>".$restoreBasketUrl."</a>";
-              }
-            }
-            echo "<br></h2>";
-          }
-          else
-          {
-            echo "<pre>".$setCookie."</pre>";
-          }
-        }
-
-      ?>
-    <?php else: ?>
       <?php if ( (isset($_POST['setParameters'])) && (strlen($_POST['setParameters'])>0) ): ?>  <!-- Process parameter change -->
         <script>
           setCookie("d3stripesSku", "<?php echo $_POST["d3stripesSku"]; ?>", 365);
@@ -1341,19 +1236,15 @@
                       <?php echo $variant[0]; ?>
                     </a>
                   </td>
-<!--                  <form target="_blank" action="/d3stryr-3stripes.php" method="post"> -->
-                  <form action="/d3stryr-3stripes.php" method="post">
-                    <td valign="middle">
+                  <form target="_blank" action="/d3stryr-3stripes-atc-cs.php" method="post">
+                    <td valign="middle" align="center">
                       <input type="hidden" value="<?php echo $clientId; ?>" name="clientId" id="clientId"/>
                       <input type="hidden" value="<?php echo $locale; ?>" name="locale" id="locale"/>
                       <input type="hidden" value="<?php echo $gcaptcha; ?>" name="gcaptcha" id="gcaptcha"/>
                       <input type="hidden" value="<?php echo $variant[0]; ?>" name="pid" id="pid"/>
                       <input type="hidden" value="<?php echo $productMasterId; ?>" name="masterPid" id="masterPid"/>
                       <input type="hidden" value="True" name="atcPostContinueShopping" id="atcPostContinueShopping"/>
-                      <!--
                       <button type="submit" value="<?php echo $variant[0]; ?>" name="submit" id="submit"><?php echo $variant[0]; ?></button>
-                      -->
-                      <button type="submit" value="<?php echo $variant[0]; ?>" name="submit" id="submit">Under Development</button>
                     </td>
                   </form>
                 </tr>
@@ -1468,7 +1359,6 @@
           </table>
         <?php endif; ?>
       <?php endif; ?>  <!--IF RESET PARAMETERS -->
-    <?php endif; ?>  <!--IF ATC VIA CONTINUE SHOPPING -->
   </body>
 </html>
 <!--
