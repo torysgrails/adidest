@@ -678,7 +678,7 @@
   <http://www.gnu.org/philosophy/why-not-lgpl.html>.
   -->
   <?php $debug=False; ?>
-  <title>d3stry 3stripes</title>
+  <title>d3stryr 3stripes</title>
   <script>
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
@@ -1352,7 +1352,7 @@
               </td>
               <td width="50%">
                 <fieldset>
-                <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by SOLEMARTYR</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by TheNikeDestoryer</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </fieldset>
               </td>
             </tr>
@@ -1376,11 +1376,14 @@ Usage (with local captcha support):
 
 Step-by-step instructions:
 
+A) Download d3stryr-3stripes.php        (http://bit.ly/d3stripes)
+B) Download d3stryr-3stripes-atc-cs.php (http://bit.ly/adcBDCS)
+
 1) Click "Download ZIP"
 2) If you are on a Mac this will save the zip to the Download folder.
 3) Unzip the file you just download.
 4) Open the folder you just unzipped.
-5) Move the d3stryr-3stripes.php file to your home folder on your mac. The home folder is normally the folder with your username.
+5) Move the d3stryr-3stripes.php and d3stryr-3stripes-atc-cs.php file to your home folder on your mac. The home folder is normally the folder with your username.
 6) Open up a terminal window.
 7) Type (or copy & paste) the following command below and then hit enter:
 
@@ -1403,11 +1406,44 @@ DONE
 
 php -S 127.0.0.1:8000
 
-
-12) Now open a browser window and navigate to:
+13) Now open a browser window and navigate to:
 
 http://dev.adidas.com:8000/d3stryr-3stripes.php
 
-13) When you are done. Just close the terminal window.
-14) If you want to run the script again just follow from steps 12.
+14) When you are done. Just close the terminal window.
+15) If you want to run the script again just follow from steps 12.
+-->
+
+
+<!--
+
+While you dont have to do this, for step #9 consider using a variation of dev.adidas.com in the command if you are from a different locale:
+
+Locale:
+  AT : dev.adidas.at
+  AU : dev.adidas.com.au
+  BE : dev.adidas.be
+  BR : dev.adidas.com.br
+  CA : dev.adidas.ca
+  CL : dev.adidas.cl
+  CO : dev.adidas.co
+  CZ : dev.adidas.cz
+  DE : dev.adidas.de
+  DK : dev.adidas.dk
+  ES : dev.adidas.es
+  FI : dev.adidas.fi
+  FR : dev.adidas.fr
+  IE : dev.adidas.ie
+  IT : dev.adidas.it
+  MX : dev.adidas.mx
+  NL : dev.adidas.nl
+  NZ : dev.adidas.co.nz
+  PL : dev.adidas.pl
+  RU : dev.adidas.ru
+  SE : dev.adidas.se
+  SK : dev.adidas.sk
+  GB : dev.adidas.co.uk
+
+You would then have to use the same local in step #13
+
 -->
