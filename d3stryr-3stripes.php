@@ -1352,7 +1352,7 @@
               </td>
               <td width="50%">
                 <fieldset>
-                <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by TheNikeDestoryer</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" href="https://twitter.com/SOLEMARTYR">Tweets by TheNikeDestroyer</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </fieldset>
               </td>
             </tr>
